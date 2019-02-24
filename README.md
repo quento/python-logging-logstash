@@ -1,2 +1,2 @@
-# python-logging-logstash
-Demo of how to use logstash to log application data to an ELK server.
+# Adding Logging to Python Application using ELK
+Demo of how to add logging to a python application using logstash module and consuming that data for display on the ELK stack.
