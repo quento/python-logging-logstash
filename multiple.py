@@ -65,6 +65,18 @@ class MultipleChecker:
                 error_display("ERROR: Please type in numeric input(s).")
                 # TODO: ERROR Log Value Error
                 self.game_logger.doLog("exception","python-logstash: ValueError occurred")
+            finally:
+                try:
+                    play_again = int(input("Play again? (type '1' for yes or '2' for No.): "))
+                    if play_again == 1:
+                        game_header()    
+                        game_instructions() 
+                        self.play_game()                                
+                    else:
+                        status = "complete"
+                except NameError:
+                    self.game_logger.doLog("error","python-logstash: NameError occurred in try again area.")                    
+                
 
 
 class Logger:
