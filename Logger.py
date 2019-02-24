@@ -30,10 +30,13 @@ class Logger:
     def stream_handler(self, value):
         self._stream_handler = value
 
-    def doLog(self,alert_type,msg):
+    def doLog(self,alert_type,msg,extra=None):
         """ Write log message based on alert_type param """
         if alert_type == "info":
-            self.app_logger.info(msg)
+            if extra != None:
+                self.app_logger.info(msg,extra=extra)
+            else:
+                self.app_logger.info(msg)
         elif alert_type == "debug":
             self.app_logger.debug(msg)
         elif alert_type == "warn":
