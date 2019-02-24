@@ -1,6 +1,7 @@
 import logging
 import logstash
 import Logger as custom_logger
+import Utility as util
 import sys
 import time
 
@@ -10,8 +11,8 @@ class MultipleChecker:
 
     def __init__(self): 
         # Show that game was initialized
-        game_header()    
-        game_instructions() 
+        util.game_header()    
+        util.game_instructions() 
         # Initialize logger class
         self.game_logger = custom_logger.Logger()
         # TODO - Log that game has started.  
@@ -63,42 +64,21 @@ class MultipleChecker:
                 
             except ValueError:
                 # If non-numeric value is typed, show error message
-                error_display("ERROR: Please type in numeric input(s).")
+                util.error_display("ERROR: Please type in numeric input(s).")
                 # TODO: ERROR Log Value Error
                 self.game_logger.doLog("exception","python-logstash: ValueError occurred")
             finally:
                 try:
                     play_again = int(input("Play again? (type '1' for yes or '2' for No.): "))
                     if play_again == 1:
-                        game_header()    
-                        game_instructions() 
+                        util.game_header()    
+                        util.game_instructions() 
                         self.play_game()                                
                     else:
                         status = "complete"
                 except NameError:
                     self.game_logger.doLog("error","python-logstash: NameError occurred in try again area.")                    
                 
-
-
-
-# Utility Functions to help with the display in the game.
-def game_header():
-    """ Display game msg or error """
-    print("*****************************************************************")
-    print("********************** Is a Multiple Of *************************")
-    print("*****************************************************************")
-
-def game_instructions():
-    """ Display the game instructions """
-    print("INSTRUCTIONS")
-    print("Get two integers from user, check if 1st is a multiple of the 2nd.")
-
-def error_display(error_msg):
-    """ Display error messages """
-    print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-    print("+            ", error_msg, "          +")
-    print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n")
-
 
 def main():
     "Get two integers from user, check if 1st is multiple of 2nd"
