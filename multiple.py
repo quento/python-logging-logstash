@@ -19,9 +19,9 @@ def game_instructions():
     print("Get two integers from user, check if 1st is a multiple of the 2nd.")
 
 def error_display(error_msg):
-    print("+++++++++++++++++++++++++++++++++++++++++++")
-    print("+        ", error_msg, "    +")
-    print("+++++++++++++++++++++++++++++++++++++++++++\n")    
+    print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+    print("+            ", error_msg, "          +")
+    print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n")    
 
 def play_game():
     status = "incomplete"
